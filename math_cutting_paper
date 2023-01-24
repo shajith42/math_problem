@@ -1,0 +1,47 @@
+#!/bin/python3
+'''Mary has an n*m piece of paper that she wants to cut into 1*1 pieces according to the following rules:
+
+She can only cut one piece of paper at a time, meaning 
+she cannot fold the paper or layer already-cut pieces on top of one another.
+Each cut is a straight line from one side of the paper to the other side of the paper. 
+For example, the diagram below depicts the three possible ways to cut a  piece of paper:3*2
+'''
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'connectingTowns' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY routes
+#
+
+def connectingTowns(n, routes):
+    r= 1
+    for i in routes:
+        r *= i
+    return r%1234567
+    
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        n = int(input().strip())
+
+        routes = list(map(int, input().rstrip().split()))
+
+        result = connectingTowns(n, routes)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
